@@ -152,6 +152,7 @@
                     <include>**/*.st</include>
                     <include>**/*.json</include>
                     <include>**/*.less</include>
+                    <include>**/*.csv</include>
                     <include>**/*.css</include>
                     <include>**/*.js</include>
                     <include>**/*.xml</include>
@@ -176,10 +177,10 @@
         </pluginManagement>
     </build>
 
-    <repositories>
-        <repository>
-            <id>bodar</id>
-            <url>http://repo.bodar.com</url>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>bodar</id>-->
+            <!--<url>http://repo.bodar.com</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 </project>
