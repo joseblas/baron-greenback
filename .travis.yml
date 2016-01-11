@@ -2,32 +2,28 @@ language: java
 jdk:
 - oraclejdk8
 script: mvn clean deploy
-after_failure: grep -lEr "(</failure>)|(</error>)" ./build/artifacts/reports | xargs cat
+after_failure: grep -lEr "(</failure>)|(</error>)" ./build/artifacts/reports | xargs
+  cat
 env:
   global:
-  - BUILD_NUMBER=1.$TRAVIS_BUILD_NUMBER
-  - secure: JUFcrRexSZCndh8ZGn1+tcCgYMCWvR7m3LmpojUtpAE1phO8/EeZA4IKsFd27DG+dNzHffrY5HiEL3VFACZrJE7kT7Fm1Hb1ExMdY9LYTJum1TkmtLExrdDI9wMF713F/AV5w/Ro0crL1jie323IQ28/NAxisVrkVvAAy+ZqX90=
-  - secure: nrDZjXurrDlbihtPN0xX5nuXaZrom060dgLknCHntZaSNgR2JU7gZZi//G+NbSIJkClYuVZU8mSMCcInmBEsOSRYthm0cWrZgvwh+0ElDoPWxWpSYYThHTYSvI6KkiJ1TWVBLohKyDGI3JS9slqjiEKW7TpdbPmWchDC0UU4Kvg=
+  - SONATYPE_USERNAME=joseblas
+  - secure: KUx25O/EMJbKrkaGuA3mcmCoJijsY7BYrvBlBUiBI0nVKB3oKAb58lYASiLpFb8r2oUGbSAgjsJWi+2T9u1pvbEUO1RyfbZdwQtTkg7KWZlKlAiL0F7tMHfmDtWRZwlK5C1+Ocjcw9wmsPNazq4Xy1v6PkWz6uwWccumUIqoqtBpl+FLA2ekLDbMz8F5125HwW7/X3kjDJnzTXIhxLST0B+udcIkQ0ddmUh9BrPgb8yVklCFpfdY1x6KQPtcPN88edwIWI1NAcyW0qxTuRK370UiCp1e9JxdbgNKjhiTsaaphgPxls2CTnZXY64w0Hj2oAVprpmaGm3RHUqUjnhYmKJlkAl+1O5bksLkbEy5KxvyYpyep+g6DAVba2ANCkLFVDdZLZXXWFYg2QfV+RmubEeHYpZ/QmOw4EBnuvXvcCyd5uhWKuLSEimsfkNpLVIgeTvZAdk6SZOCVLfwj2/8ql65sTljCo9SNqwOcMuEzaPybyvxA1JXRlnEpGdd5qxtPPDJT2HRaP/aerbkaKzqliw6vWEfjhpwVL0/cf3KD6RD7wtqW44Yk67ukn+xu+0l+fC3llAtxcodAyM+SgdiMplAjzTMclvYE9H3wF6KbKad8jkULG0/HOYjbV8HTwrloj97IGH0/tXRV1wQYZVaLAaVpgo77qM6B2hdrgDFSB8=
 before_deploy:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - export GIT_TAG=$BUILD_NUMBER
-- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $BUILD_NUMBER" > /dev/null 2>&1
+- git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $BUILD_NUMBER" > /dev/null
+  2>&1
 - git push -q https://$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG --tags
 deploy:
   provider: releases
-  api_key: $GITHUB_API_KEY
+  api_key: 9aML6u6pWr2ZhYWEEhsG
   file_glob: true
-  file:
-  - ./target/*.jar
-  - ./target/*.pom.xml
   skip_cleanup: true
   on:
     repo: joseblas/baron-greenback
     tags: false
     all_branches: true
-
 branches:
-  # Don't build tags
   except:
-  - /^[0-9].[0-9]*/
+  - "/^[0-9].[0-9]*/"

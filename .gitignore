@@ -11,3 +11,5 @@
 .idea/uiDesigner.xml
 target
 /out/
+*travis.log
+
