@@ -1,7 +1,5 @@
+/.idea
 *~
-build/artifacts
-lib/*
-
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/dictionaries
@@ -11,5 +9,5 @@ lib/*
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
-
+target
 /out/
