@@ -152,10 +152,9 @@
                     <include>**/*.st</include>
                     <include>**/*.json</include>
                     <include>**/*.less</include>
-                    <include>**/*.csv</include>
+                    <include>**/*.css</include>
                     <include>**/*.js</include>
                     <include>**/*.xml</include>
-                    <include>**/*.css</include>
                 </includes>
             </testResource>
         </testResources>
