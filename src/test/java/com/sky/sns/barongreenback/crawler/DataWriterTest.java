@@ -46,7 +46,7 @@ public class DataWriterTest {
         Definition bPartial = definition(definitionName, id, b);
 
         Records records = new MemoryRecords();
-        DataWriter dataWriter = new DataWriter(applicationWithRecords(records), 1, 1, "test", 2);
+        DataWriter dataWriter = new DataWriter(applicationWithRecords(records), 1, 1, "test", 4);
         Phaser phaser = new Phaser();
         phaser.register();
         dataWriter.queue(jobWithDefinition(aPartial), one(aRecord), phaser);
